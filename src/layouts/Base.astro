@@ -1,0 +1,64 @@
+---
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from 'astro:i18n';
+import '../styles/global.css';
+import { getDictionary, links, localeNames, locales, type Locale } from '../i18n';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{t.meta.title}</title>
+		<meta name="description" content={t.meta.description} />
+		<link rel="canonical" href={getAbsoluteLocaleUrl(locale)} />
+		{locales.map((l) => <link rel="alternate" hreflang={l} href={getAbsoluteLocaleUrl(l)} />)}
+		<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl('en')} />
+	</head>
+	<body class="bg-neutral-950 text-neutral-100 antialiased">
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-black"
+		>
+			{t.nav.skip}
+		</a>
+		<header class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
+			<a href={getRelativeLocaleUrl(locale)} class="text-lg font-bold">LiveSubtitles</a>
+			<div class="flex items-center gap-6 text-sm">
+				<a href={links.repo} class="underline-offset-4 hover:underline">{t.nav.source}</a>
+				<nav aria-label={t.nav.language}>
+					<ul class="flex gap-3">
+						{
+							locales.map((l) => (
+								<li>
+									<a
+										href={getRelativeLocaleUrl(l)}
+										lang={l}
+										hreflang={l}
+										aria-current={l === locale ? 'page' : undefined}
+										class="underline-offset-4 hover:underline aria-[current=page]:font-bold aria-[current=page]:underline"
+									>
+										{localeNames[l]}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main id="main">
+			<slot />
+		</main>
+		<footer class="mx-auto max-w-5xl px-6 py-10 text-sm text-neutral-400">
+			<p>{t.footer.privacy}</p>
+		</footer>
+	</body>
+</html>

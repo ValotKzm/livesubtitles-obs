@@ -1,0 +1,28 @@
+---
+import Section from './Section.astro';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+	t: Dictionary['demo'];
+}
+
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Section id="demo" title={t.title}>
+	<figure>
+		<!-- Fichier provisoire : à remplacer par la vraie vidéo (jalon 7 de PLAN.md). -->
+		<img
+			class="w-full rounded-xl border border-neutral-800"
+			src={`${base}/demo/demo-placeholder.svg`}
+			alt={t.alt}
+			width="1920"
+			height="1080"
+		/>
+		<figcaption class="mt-4 text-neutral-300">
+			{t.caption}
+			<span class="mt-1 block text-sm text-neutral-400">{t.placeholder}</span>
+		</figcaption>
+	</figure>
+</Section>
