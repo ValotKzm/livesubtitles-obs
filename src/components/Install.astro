@@ -11,28 +11,31 @@ const { t, download } = Astro.props;
 ---
 
 <Section id="install" title={t.title}>
-	<ol class="grid gap-6 sm:grid-cols-3">
+	<ol class="grid gap-5 md:grid-cols-3">
 		{
 			t.steps.map((step, i) => (
-				<li class="rounded-xl border border-neutral-800 bg-neutral-900 p-6">
-					<span class="text-sm font-semibold text-cyan-300" aria-hidden="true">
+				<li class="card">
+					<span
+						class="flex size-10 items-center justify-center rounded-full bg-cta text-lg font-extrabold text-cta-ink"
+						aria-hidden="true"
+					>
 						{i + 1}
 					</span>
-					<h3 class="mt-1 text-lg font-semibold">{step.title}</h3>
-					<p class="mt-2 text-neutral-300">{step.text}</p>
+					<h3 class="mt-4 text-xl font-bold">{step.title}</h3>
+					<p class="mt-2 text-muted">{step.text}</p>
 				</li>
 			))
 		}
 	</ol>
 	<p class="mt-6">
-		<a href={links.download} class="font-semibold text-cyan-300 underline underline-offset-4">
-			{download}
-		</a>
+		<a href={links.download} class="link">{download}</a>
 	</p>
 
-	<h3 class="mt-10 text-xl font-semibold">{t.useTitle}</h3>
-	<ol class="mt-4 list-decimal space-y-2 pl-6 text-neutral-300">
-		{t.useSteps.map((step) => <li>{step}</li>)}
-	</ol>
-	<p class="mt-4 text-neutral-300">{t.viewers}</p>
+	<div class="card mt-10 sm:p-8">
+		<h3 class="text-xl font-bold">{t.useTitle}</h3>
+		<ol class="mt-4 list-decimal space-y-2 pl-5 text-muted marker:font-bold marker:text-accent">
+			{t.useSteps.map((step) => <li class="pl-1">{step}</li>)}
+		</ol>
+		<p class="mt-5 font-medium">{t.viewers}</p>
+	</div>
 </Section>

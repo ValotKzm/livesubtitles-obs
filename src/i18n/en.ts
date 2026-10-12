@@ -9,13 +9,20 @@ export const en = {
 	nav: {
 		skip: 'Skip to content',
 		language: 'Language',
-		source: 'Source code'
+		source: 'Source code',
+		theme: 'Switch between light and dark theme'
 	},
 	hero: {
 		title: 'Live subtitles for your stream, translated or not',
 		lead: 'LiveSubtitles is an OBS Studio plugin that shows subtitles of what you say, live, on your stream. Reach viewers who speak another language, or make your stream accessible to deaf and hard-of-hearing viewers.',
 		download: 'Download for Windows',
-		downloadNote: 'Free. Windows 10 or 11, OBS Studio 31.1 or later.'
+		downloadNote: 'Free. Windows 10 or 11, OBS Studio 31.1 or later.',
+		example: {
+			spokenLabel: 'You say',
+			spoken: 'Bonjour à tous, bienvenue sur le stream !',
+			subtitleLabel: 'Your viewers read',
+			subtitle: 'Hello everyone, welcome to the stream!'
+		}
 	},
 	demo: {
 		title: 'See it in action',

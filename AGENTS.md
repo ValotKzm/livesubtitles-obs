@@ -34,6 +34,14 @@ pnpm preview                  # sert dist/ en local
 
 Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulter le guide concerné (routage, composants de framework, styles, internationalisation) avant de s'appuyer sur une API de mémoire.
 
+## Identité visuelle
+
+- Les couleurs sont des variables CSS définies dans `src/styles/global.css`, en clair et en sombre, puis exposées à Tailwind (`bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `text-accent`, `bg-cta`, `border-line`). Utiliser ces noms, jamais une couleur de la palette Tailwind ni un code écrit en dur, sinon un des deux thèmes casse.
+- Le thème suit `prefers-color-scheme` par défaut. Le bouton de l'en-tête pose `data-theme` sur `<html>` et retient le choix dans `localStorage` (deux petits scripts en ligne dans `src/layouts/Base.astro`, les seuls de la page hors îlot React). Sans JavaScript, le bouton reste caché. Les valeurs du thème sombre existent en deux exemplaires dans `global.css` (système et choix manuel) : modifier les deux.
+- La palette vient de la charte personnelle de l'utilisateur : bleu nuit `#0A0F14`, blanc cassé `#E8E8E8`, cyan `#00E5FF` en accent. Le cyan n'étant pas lisible sur fond clair, le thème clair utilise un bleu-vert foncé. L'imagerie gothique de la charte n'est pas reprise. Ce choix est provisoire : l'utilisateur a dit vouloir y revenir.
+- Police : Montserrat variable, fournie par le paquet `@fontsource-variable/montserrat` et servie avec le site.
+- Animations en CSS uniquement, toutes dans `@media (prefers-reduced-motion: no-preference)` : `.enter` à l'arrivée, `.reveal` au défilement (seulement si le navigateur connaît `animation-timeline`), `.lift` au survol. Le contenu doit rester visible quand elles ne jouent pas.
+
 ## Contraintes qui ne dépendent pas de la stack
 
 - **Site entièrement statique** : pas de serveur, de base de données ni de compte.

@@ -9,13 +9,20 @@ export const fr: Dictionary = {
 	nav: {
 		skip: 'Aller au contenu',
 		language: 'Langue',
-		source: 'Code source'
+		source: 'Code source',
+		theme: 'Basculer entre le thème clair et le thème sombre'
 	},
 	hero: {
 		title: 'Des sous-titres en direct sur votre stream, traduits ou non',
 		lead: 'LiveSubtitles est un plugin OBS Studio qui affiche en direct, sur votre stream, les sous-titres de ce que vous dites. Touchez des viewers qui parlent une autre langue, ou rendez votre stream accessible aux personnes sourdes et malentendantes.',
 		download: 'Télécharger pour Windows',
-		downloadNote: 'Gratuit. Windows 10 ou 11, OBS Studio 31.1 ou plus récent.'
+		downloadNote: 'Gratuit. Windows 10 ou 11, OBS Studio 31.1 ou plus récent.',
+		example: {
+			spokenLabel: 'Vous dites',
+			spoken: 'Bonjour à tous, bienvenue sur le stream !',
+			subtitleLabel: 'Vos viewers lisent',
+			subtitle: 'Hello everyone, welcome to the stream!'
+		}
 	},
 	demo: {
 		title: 'Voyez-le en action',
