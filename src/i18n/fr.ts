@@ -29,7 +29,25 @@ export const fr: Dictionary = {
 		alt: "Démo provisoire : des sous-titres apparaissent puis s'effacent sur une scène de stream fictive.",
 		caption:
 			"Vous parlez dans votre microphone. Une à deux secondes après chaque phrase, le sous-titre apparaît sur votre stream, puis s'efface de lui-même.",
-		placeholder: 'Démo provisoire : le véritable enregistrement arrive.'
+		placeholder: 'Démo provisoire : le véritable enregistrement arrive.',
+		simulator: {
+			title: 'Essayez le simulateur',
+			settings: 'Réglages du simulateur',
+			spokenLabel: 'Langue parlée',
+			subtitleLabel: 'Langue des sous-titres',
+			languages: { fr: 'Français', en: 'Anglais' },
+			play: 'Lecture',
+			pause: 'Pause',
+			youSay: 'Vous dites',
+			onStream: 'Sur votre stream',
+			statusSpeaking: 'Vous parlez…',
+			statusWaiting: 'Fin de la phrase : le sous-titre arrive dans une à deux secondes.',
+			statusShown: "Le sous-titre est à l'écran, puis s'efface de lui-même.",
+			sameLanguage: 'Même langue des deux côtés : sous-titres sans traduction.',
+			disclaimer:
+				"Ceci est une simulation avec des phrases préparées : elle n'utilise pas votre microphone et ne traduit rien. La vraie traduction convient à la conversation courante, sans être parfaite.",
+			noscript: 'Le simulateur a besoin de JavaScript. Le reste de la page fonctionne sans.'
+		}
 	},
 	arguments: {
 		title: 'Pourquoi LiveSubtitles',
