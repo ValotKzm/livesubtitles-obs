@@ -1,0 +1,31 @@
+---
+import Section from './Section.astro';
+import { links, type Dictionary } from '../i18n';
+
+interface Props {
+	t: Dictionary['source'];
+}
+
+const { t } = Astro.props;
+const items = [
+	{ href: links.repo, label: t.repo },
+	{ href: links.issues, label: t.issues },
+	{ href: links.license, label: t.license },
+	{ href: links.thirdParty, label: t.thirdParty }
+];
+---
+
+<Section id="source" title={t.title}>
+	<p class="text-neutral-300">{t.text}</p>
+	<ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+		{
+			items.map((item) => (
+				<li>
+					<a href={item.href} class="text-cyan-300 underline underline-offset-4">
+						{item.label}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</Section>

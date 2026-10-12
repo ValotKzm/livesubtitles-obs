@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+import { links, type Dictionary } from '../i18n';
+
+interface Props {
+	t: Dictionary['install'];
+	download: string;
+}
+
+const { t, download } = Astro.props;
+---
+
+<Section id="install" title={t.title}>
+	<ol class="grid gap-6 sm:grid-cols-3">
+		{
+			t.steps.map((step, i) => (
+				<li class="rounded-xl border border-neutral-800 bg-neutral-900 p-6">
+					<span class="text-sm font-semibold text-cyan-300" aria-hidden="true">
+						{i + 1}
+					</span>
+					<h3 class="mt-1 text-lg font-semibold">{step.title}</h3>
+					<p class="mt-2 text-neutral-300">{step.text}</p>
+				</li>
+			))
+		}
+	</ol>
+	<p class="mt-6">
+		<a href={links.download} class="font-semibold text-cyan-300 underline underline-offset-4">
+			{download}
+		</a>
+	</p>
+
+	<h3 class="mt-10 text-xl font-semibold">{t.useTitle}</h3>
+	<ol class="mt-4 list-decimal space-y-2 pl-6 text-neutral-300">
+		{t.useSteps.map((step) => <li>{step}</li>)}
+	</ol>
+	<p class="mt-4 text-neutral-300">{t.viewers}</p>
+</Section>

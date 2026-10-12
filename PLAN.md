@@ -8,9 +8,9 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-12, les jalons 0 et 1 sont terminés. Le projet Astro se construit et affiche une page minimale avec la démonstration provisoire. Le dépôt git est initialisé sur `main`, sans aucun commit ni dépôt distant.
+Au 2026-10-12, les jalons 0 à 2 sont terminés. Le site affiche ses six sections en anglais et en français, avec une mise en forme minimale et la démonstration provisoire. Le dépôt git n'a pas de dépôt distant.
 
-**Prochaine étape : internationalisation et contenu (jalon 2).**
+**Prochaine étape : identité visuelle et mise en page (jalon 3).**
 
 ## Jalons
 
@@ -26,7 +26,9 @@ Initialiser le dépôt git et le projet Astro avec TypeScript strict, Tailwind C
 
 **Sortie attendue :** le serveur de développement démarre, le build statique réussit, la vérification de types passe, une page vide s'affiche sous le sous-chemin configuré.
 
-### 2. Internationalisation et contenu - À faire
+### 2. Internationalisation et contenu - Terminé (2026-10-12)
+
+Vérifié le 2026-10-12 : `pnpm check` sans erreur, build de deux pages (`/` en anglais, `/fr/` en français), six sections présentes dans les deux, bouton de téléchargement vers `releases/latest`, balises `canonical` et `hreflang` correctes sous le sous-chemin, aucun script dans le HTML produit, rendu de la page française contrôlé sur capture d'écran à 1280 px. La mise en forme est volontairement minimale en attendant le jalon 3.
 
 Mettre en place le routage français et anglais avec un sélecteur de langue et les balises `hreflang`. Ranger les textes dans une source typée unique par langue, de sorte qu'une clé manquante dans une langue fasse échouer la vérification de types. Rédiger les six sections à partir du README du plugin.
 

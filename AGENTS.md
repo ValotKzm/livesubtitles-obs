@@ -13,7 +13,7 @@ Priorités, dans l'ordre : exactitude de ce qui est affirmé, simplicité pour u
 - **Astro** en sortie statique, **TypeScript** strict.
 - **Tailwind CSS** pour les styles.
 - **Un îlot React** pour la démonstration interactive ; tout le reste est rendu en HTML sans JavaScript. La page doit rester lisible et le bouton de téléchargement utilisable si JavaScript est désactivé.
-- **Routage i18n d'Astro** : français et anglais, mêmes sections dans les deux langues.
+- **Routage i18n d'Astro** : anglais à la racine, français sous `/fr/`, mêmes sections dans les deux langues. Tous les textes sont dans `src/i18n/en.ts` et `src/i18n/fr.ts` ; l'anglais sert de référence de type, donc une clé oubliée en français fait échouer `pnpm check`. Aucun texte visible n'est écrit en dur dans un composant. Les adresses externes sont dans `src/i18n/links.ts`, les liens internes passent par `astro:i18n`.
 - **Playwright** avec **axe** pour les tests de bout en bout et d'accessibilité.
 - **pnpm** comme gestionnaire de paquets ; **GitHub Actions** pour vérifier et déployer sur **GitHub Pages**.
 

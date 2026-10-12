@@ -11,6 +11,12 @@ export default defineConfig({
   site: 'https://valotkzm.github.io',
   base: '/livesubtitles-website',
 
+  // Anglais à la racine, français sous /fr/.
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en'
+  },
+
   integrations: [react()],
 
   vite: {

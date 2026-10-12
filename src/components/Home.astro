@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Arguments from './Arguments.astro';
+import Demo from './Demo.astro';
+import Hero from './Hero.astro';
+import Install from './Install.astro';
+import Requirements from './Requirements.astro';
+import Source from './Source.astro';
+import { getDictionary, type Locale } from '../i18n';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<Base locale={locale}>
+	<Hero t={t.hero} />
+	<Demo t={t.demo} />
+	<Arguments t={t.arguments} />
+	<Install t={t.install} download={t.hero.download} />
+	<Requirements t={t.requirements} />
+	<Source t={t.source} />
+</Base>
