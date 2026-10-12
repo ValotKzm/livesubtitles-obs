@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from 'astro:i18n';
 import '@fontsource-variable/montserrat';
 import '../styles/global.css';
+import logo from '../assets/logo-ys.png';
 import { getDictionary, links, localeNames, locales, type Locale } from '../i18n';
 
 interface Props {
@@ -106,10 +108,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		</main>
 		<footer class="border-t border-line">
 			<div
-				class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 text-sm text-muted sm:flex-row sm:justify-between sm:px-8"
+				class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8"
 			>
-				<p>{t.footer.privacy}</p>
-				<p><a href={links.license} class="underline underline-offset-4">{t.source.license}</a></p>
+				<div class="space-y-1">
+					<p>{t.footer.privacy}</p>
+					<p><a href={links.license} class="underline underline-offset-4">{t.source.license}</a></p>
+				</div>
+				<!-- Le logo est clair : il reste sur une pastille sombre dans les deux thèmes. -->
+				<a href={links.author} class="group flex items-center gap-3 font-medium text-ink">
+					<span>{t.footer.madeBy} <span class="font-bold group-hover:underline">Yannick Souza</span></span>
+					<span class="flex size-16 items-center justify-center rounded-xl bg-[#0a0f14] ring-1 ring-line">
+						<Image src={logo} alt={t.footer.logoAlt} height={104} class="h-13 w-auto" />
+					</span>
+				</a>
 			</div>
 		</footer>
 		<script is:inline>
