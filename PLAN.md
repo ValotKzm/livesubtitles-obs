@@ -8,9 +8,9 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-12, les jalons 0 à 3 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
+Au 2026-10-12, les jalons 0 à 4 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire et un simulateur interactif. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
 
-**Prochaine étape : démonstration interactive (jalon 4).**
+**Prochaine étape : tests et qualité (jalon 5).**
 
 ## Jalons
 
@@ -42,7 +42,9 @@ Définir les couleurs, la typographie (polices hébergées avec le site) et les 
 
 **Sortie attendue :** page complète et lisible à 360 px et à 1440 px, dans les deux thèmes, sans JavaScript.
 
-### 4. Démonstration - À faire
+### 4. Démonstration - Terminé (2026-10-12)
+
+Vérifié le 2026-10-12 : `pnpm check` et `pnpm build` passent ; dans le navigateur, l'îlot s'hydrate, la lecture démarre et passe à la phrase suivante ; rendu contrôlé sur capture en thème sombre à 1300 px. Non vérifié, à couvrir par les tests du jalon 5 : le clic sur les choix de langue et sur Pause, la navigation au clavier, le comportement sous `prefers-reduced-motion`, le rendu sur téléphone.
 
 Intégrer `public/demo/demo-placeholder.svg` à l'emplacement de la future vidéo. Ajouter l'îlot React : un simulateur où le visiteur choisit la langue parlée et celle des sous-titres et voit des phrases d'exemple s'afficher puis s'effacer comme dans OBS, avec le délai réel d'une à deux secondes. Les phrases sont écrites à l'avance ; le simulateur ne capte pas le microphone et ne traduit rien, et il le dit.
 

@@ -29,7 +29,25 @@ export const en = {
 		alt: 'Placeholder demo: subtitles appear and fade out on a mock stream scene.',
 		caption:
 			'You speak into your microphone. A second or two after each sentence, the subtitle appears on your stream, then fades out by itself.',
-		placeholder: 'Placeholder: the real recording is coming.'
+		placeholder: 'Placeholder: the real recording is coming.',
+		simulator: {
+			title: 'Try the simulator',
+			settings: 'Simulator settings',
+			spokenLabel: 'Spoken language',
+			subtitleLabel: 'Subtitle language',
+			languages: { fr: 'French', en: 'English' },
+			play: 'Play',
+			pause: 'Pause',
+			youSay: 'You say',
+			onStream: 'On your stream',
+			statusSpeaking: 'You are speaking…',
+			statusWaiting: 'End of the sentence: the subtitle arrives in a second or two.',
+			statusShown: 'The subtitle is on screen, then fades out by itself.',
+			sameLanguage: 'Same language on both sides: subtitles without translation.',
+			disclaimer:
+				'This is a simulation with prepared sentences: it does not use your microphone and translates nothing. The real translation is good for everyday speech, not perfect.',
+			noscript: 'The simulator needs JavaScript. The rest of the page works without it.'
+		}
 	},
 	arguments: {
 		title: 'Why LiveSubtitles',
