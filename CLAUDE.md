@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Charger le contexte utile
 
+En début de session, lis `NOTES.md` : il dit où le travail s'est arrêté, la prochaine tâche, ce qui attend l'utilisateur et les pièges déjà rencontrés. Mets-le à jour en fin de session.
+
 `AGENTS.md` contient la stack, les contraintes, ce que le site a le droit d'affirmer et les règles de travail. Il est chargé avec ce fichier.
 
 Consulte `PLAN.md` pour choisir la prochaine étape ou réviser la feuille de route, pas pour une correction locale. Pour une tâche de planification, compare son contenu à l'état réel du dépôt.
