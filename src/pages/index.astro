@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>LiveSubtitles</title>
+	</head>
+	<body class="bg-neutral-950 text-neutral-100">
+		<main class="mx-auto max-w-3xl p-6">
+			<h1 class="text-3xl font-bold">LiveSubtitles</h1>
+			<img
+				class="mt-6 w-full rounded-lg"
+				src={`${base}/demo/demo-placeholder.svg`}
+				alt="Démo provisoire : des sous-titres apparaissent puis s'effacent sur une scène de stream fictive."
+				width="1920"
+				height="1080"
+			/>
+		</main>
+	</body>
+</html>

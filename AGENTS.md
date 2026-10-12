@@ -1,0 +1,81 @@
+# Site LiveSubtitles : consignes du projet
+
+## Objectif et priorités
+
+Ce dépôt contient le site vitrine de [LiveSubtitles](https://github.com/ValotKzm/livesubtitles), un plugin OBS Studio qui affiche en direct les sous-titres de ce que dit le streamer, traduits ou non (français et anglais). Le site a deux rôles : présenter le plugin et le faire télécharger. Il sert aussi de pièce de portfolio : la stack doit être moderne et le code soigné, sans que cela dégrade le site pour le visiteur.
+
+Deux publics à qui parler : le streamer qui veut être compris dans une autre langue, et celui qui veut rendre son stream accessible aux personnes sourdes et malentendantes (sous-titres sans traduction).
+
+Priorités, dans l'ordre : exactitude de ce qui est affirmé, simplicité pour un streamer non technique, accessibilité, rapidité, effets visuels.
+
+## Stack
+
+- **Astro** en sortie statique, **TypeScript** strict.
+- **Tailwind CSS** pour les styles.
+- **Un îlot React** pour la démonstration interactive ; tout le reste est rendu en HTML sans JavaScript. La page doit rester lisible et le bouton de téléchargement utilisable si JavaScript est désactivé.
+- **Routage i18n d'Astro** : français et anglais, mêmes sections dans les deux langues.
+- **Playwright** avec **axe** pour les tests de bout en bout et d'accessibilité.
+- **pnpm** comme gestionnaire de paquets ; **GitHub Actions** pour vérifier et déployer sur **GitHub Pages**.
+
+Versions installées le 2026-10-12 : Astro 7, React 19, Tailwind CSS 4 (plugin Vite, importé dans `src/styles/global.css`), TypeScript 6. Rester sur TypeScript 6 : `astro check` refuse TypeScript 7. Playwright n'est pas encore installé (jalon 5 de `PLAN.md`).
+
+## Commandes
+
+```
+pnpm install                  # dépendances
+pnpm astro dev --background   # serveur de développement en arrière-plan
+pnpm astro dev status         # état du serveur ; `stop` pour l'arrêter, `logs` pour son journal
+pnpm check                    # vérification de types (astro check)
+pnpm build                    # build statique dans dist/
+pnpm preview                  # sert dist/ en local
+```
+
+À cause de `base`, le site local est à l'adresse http://localhost:4321/livesubtitles-website/ et non à la racine.
+
+Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulter le guide concerné (routage, composants de framework, styles, internationalisation) avant de s'appuyer sur une API de mémoire.
+
+## Contraintes qui ne dépendent pas de la stack
+
+- **Site entièrement statique** : pas de serveur, de base de données ni de compte.
+- **Aucune statistique, aucun traceur, aucune ressource tierce chargée par le navigateur** (polices, scripts, lecteurs vidéo intégrés, CDN). Les polices sont hébergées avec le site. Le plugin promet que rien ne quitte l'ordinateur ; le site ne doit pas contredire cette promesse ni exiger de bandeau de cookies.
+- **L'installateur n'est jamais stocké dans le site** (environ 300 Mo). Le bouton de téléchargement pointe vers `https://github.com/ValotKzm/livesubtitles/releases/latest`.
+- **Le site doit fonctionner sous un sous-chemin** (`valotkzm.github.io/<dépôt>/`) comme à la racine d'un futur nom de domaine : passer par la configuration `base` d'Astro, jamais de chemin absolu écrit en dur.
+- **Accessibilité** : le site présente un outil d'accessibilité, il doit être exemplaire. Contrastes suffisants, navigation au clavier, respect de `prefers-reduced-motion`, texte alternatif, et toute vidéo de démonstration accompagnée d'un équivalent textuel.
+
+## Ce que le site peut affirmer
+
+Les textes viennent du `README.md` du plugin, qui existe en français et en anglais. Ne rien promettre que le plugin ne tient pas.
+
+- Gratuit, logiciel libre (GPL version 2 ou ultérieure), sans compte, clé API ni serveur. La voix ne quitte pas l'ordinateur et rien n'est enregistré.
+- Français et anglais uniquement, dans les deux sens, ou sous-titres sans traduction.
+- Windows 10 ou 11 (64 bits) et OBS Studio 31.1 ou plus récent. Environ 300 Mo sur le disque et 500 Mo de mémoire pendant l'écoute.
+- Les sous-titres apparaissent une à deux secondes après chaque phrase : ne pas parler de sous-titrage instantané ou mot à mot.
+- La traduction convient à la conversation courante, sans être parfaite, et connaît mal le vocabulaire du streaming.
+- Un seul microphone ; une seule langue de sous-titres à la fois, incrustée dans l'image.
+- L'installateur n'est pas signé : Windows affiche « Windows a protégé votre ordinateur ». La page d'installation doit montrer où cliquer (Informations complémentaires, puis Exécuter quand même).
+- Les performances n'ont été mesurées que sur une machine puissante : ne donner aucune garantie pour un PC modeste.
+
+## Contenu de la page, dans l'ordre
+
+1. Phrase d'accroche et bouton de téléchargement, visibles sans faire défiler.
+2. Démonstration.
+3. Les trois arguments : gratuit, tout reste sur l'ordinateur, sans compte ni clé API.
+4. Installation en trois étapes, avec capture d'écran de l'avertissement Windows.
+5. Configuration requise et langues disponibles.
+6. Lien vers le dépôt GitHub : code source, licences, signalement de bugs.
+
+## Fichiers provisoires et privés
+
+`public/demo/demo-placeholder.svg` est une fausse démonstration animée, au format 16:9, en attendant la vraie vidéo que l'utilisateur enregistrera. Elle porte la mention « Démo provisoire » et ne doit pas partir en ligne telle quelle. Ne pas fabriquer de fausse capture d'OBS présentée comme réelle.
+
+
+
+## Règles de travail
+
+- Fais le changement minimal qui répond à la tâche. N'ajoute pas de dépendance sans besoin démontré.
+- Ne suppose pas qu'une API, une option de configuration ou une commande existe : vérifie-la dans le dépôt ou la documentation officielle.
+- Après chaque changement, lance la vérification ciblée disponible, puis le build si le risque le justifie. Rapporte exactement ce qui a été vérifié.
+- Ne crée pas de commit sans demande explicite.
+- Travaille sur une branche par étape (`feat/...`, `fix/...`, `docs/...`), fusionnée dans `main` avec un commit de merge une fois l'étape vérifiée, puis supprimée.
+- Les messages de commit et de merge ne mentionnent aucun outil d'IA et ne portent aucune ligne de co-auteur automatique.
+- Ne lance pas tout le plan d'un seul coup : un jalon de `PLAN.md` à la fois, marqué terminé seulement après vérification de son critère de sortie.
