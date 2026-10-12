@@ -8,9 +8,9 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-12, les jalons 0 à 2 sont terminés. Le site affiche ses six sections en anglais et en français, avec une mise en forme minimale et la démonstration provisoire. Le dépôt git n'a pas de dépôt distant.
+Au 2026-10-12, les jalons 0 à 3 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire. Le dépôt git n'a pas de dépôt distant.
 
-**Prochaine étape : identité visuelle et mise en page (jalon 3).**
+**Prochaine étape : démonstration interactive (jalon 4).**
 
 ## Jalons
 
@@ -34,7 +34,9 @@ Mettre en place le routage français et anglais avec un sélecteur de langue et 
 
 **Sortie attendue :** les deux versions affichent les six sections avec le même contenu ; le bouton de téléchargement pointe vers `releases/latest` ; aucune affirmation hors de la liste d'`AGENTS.md`.
 
-### 3. Identité visuelle et mise en page - À faire
+### 3. Identité visuelle et mise en page - Terminé (2026-10-12)
+
+Vérifié le 2026-10-12 sur captures d'écran : thème sombre et thème clair à 1440 px, page entière en thème sombre à 360 px, accroche et bouton de téléchargement visibles sans défiler à 1440 x 1000. `pnpm check` et `pnpm build` passent, toujours aucun script dans le HTML produit. Non vérifié : les contrastes à l'outil (prévu avec axe au jalon 5), le rendu dans Firefox et Safari, l'effet réel des animations au défilement.
 
 Définir les couleurs, la typographie (polices hébergées avec le site) et les thèmes clair et sombre, après avoir demandé à l'utilisateur ce que le site doit reprendre de sa charte graphique personnelle (`_private/`). Mettre en page les six sections, du téléphone au grand écran. Ajouter des animations sobres (apparition des sections au défilement, transitions), en CSS d'abord, toutes coupées sous `prefers-reduced-motion`. L'accroche et le bouton de téléchargement restent visibles sans faire défiler.
 

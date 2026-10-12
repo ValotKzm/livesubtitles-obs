@@ -1,1 +1,202 @@
 @import "tailwindcss";
+
+/* Couleurs : le thème suit le réglage du système, sans JavaScript.
+   Chaque paire texte/fond respecte un contraste d'au moins 4,5:1. */
+:root {
+	color-scheme: light dark;
+
+	--bg: #f4f7f9;
+	--surface: #ffffff;
+	--surface-2: #e9eef2;
+	--line: #d3dce4;
+	--ink: #0a0f14;
+	--muted: #46535f;
+	--accent: #006d7c;
+	--cta: #006d7c;
+	--cta-hover: #00596a;
+	--cta-ink: #ffffff;
+	--glow: rgb(0 229 255 / 0.22);
+}
+
+/* Sombre si le système le demande, sauf si le visiteur a choisi le clair. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		color-scheme: dark;
+		--bg: #0a0f14;
+		--surface: #111920;
+		--surface-2: #18222c;
+		--line: #24313d;
+		--ink: #e8e8e8;
+		--muted: #9eabb7;
+		--accent: #00e5ff;
+		--cta: #00e5ff;
+		--cta-hover: #6ff1ff;
+		--cta-ink: #0a0f14;
+		--glow: rgb(0 229 255 / 0.14);
+	}
+}
+
+/* Sombre choisi avec le bouton de l'en-tête : mêmes valeurs que ci-dessus. */
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--bg: #0a0f14;
+	--surface: #111920;
+	--surface-2: #18222c;
+	--line: #24313d;
+	--ink: #e8e8e8;
+	--muted: #9eabb7;
+	--accent: #00e5ff;
+	--cta: #00e5ff;
+	--cta-hover: #6ff1ff;
+	--cta-ink: #0a0f14;
+	--glow: rgb(0 229 255 / 0.14);
+}
+
+:root[data-theme="light"] {
+	color-scheme: light;
+}
+
+/* Le bouton montre le thème vers lequel il bascule : lune en clair, soleil en sombre. */
+.icon-sun {
+	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .icon-sun {
+		display: block;
+	}
+
+	:root:not([data-theme="light"]) .icon-moon {
+		display: none;
+	}
+}
+
+:root[data-theme="dark"] .icon-sun {
+	display: block;
+}
+
+:root[data-theme="dark"] .icon-moon {
+	display: none;
+}
+
+@theme inline {
+	--font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-surface-2: var(--surface-2);
+	--color-line: var(--line);
+	--color-ink: var(--ink);
+	--color-muted: var(--muted);
+	--color-accent: var(--accent);
+	--color-cta: var(--cta);
+	--color-cta-hover: var(--cta-hover);
+	--color-cta-ink: var(--cta-ink);
+}
+
+@layer base {
+	html {
+		scroll-padding-top: 5rem;
+	}
+
+	body {
+		background-color: var(--bg);
+		color: var(--ink);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+}
+
+@layer components {
+	.card {
+		border: 1px solid var(--line);
+		border-radius: 1rem;
+		background-color: var(--surface);
+		padding: 1.5rem;
+	}
+
+	.link {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	.link:hover {
+		text-decoration-thickness: 2px;
+	}
+
+	/* Halo derrière l'accroche. */
+	.hero-glow {
+		background: radial-gradient(60% 55% at 70% 0%, var(--glow), transparent 70%);
+	}
+
+	/* Bandeau de sous-titre, comme dans OBS : toujours clair sur fond sombre. */
+	.caption {
+		display: inline-block;
+		border-radius: 0.5rem;
+		background-color: rgb(0 0 0 / 0.78);
+		color: #ffffff;
+		padding: 0.5rem 0.9rem;
+		font-weight: 600;
+	}
+}
+
+/* Animations : uniquement si le visiteur ne les a pas désactivées. Sans elles,
+   ou dans un navigateur qui ne les connaît pas, tout le contenu reste visible. */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	@view-transition {
+		navigation: auto;
+	}
+
+	@keyframes rise {
+		from {
+			opacity: 0;
+			transform: translateY(1.25rem);
+		}
+	}
+
+	@keyframes caption-in {
+		from {
+			opacity: 0;
+			transform: translateY(0.4rem);
+		}
+	}
+
+	.enter {
+		animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+		animation-delay: var(--delay, 0s);
+	}
+
+	/* Le sous-titre arrive après la phrase, comme avec le plugin. */
+	.caption-in {
+		animation: caption-in 0.5s ease-out 1.4s both;
+	}
+
+	@supports (animation-timeline: view()) {
+		.reveal {
+			animation: rise linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 40%;
+		}
+	}
+
+	.lift {
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease;
+	}
+
+	.lift:hover {
+		transform: translateY(-3px);
+		border-color: var(--accent);
+	}
+}
