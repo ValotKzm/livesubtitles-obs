@@ -100,6 +100,8 @@ export const fr: Dictionary = {
 		thirdParty: 'Logiciels et modèles tiers'
 	},
 	footer: {
+		madeBy: 'Créé par',
+		logoAlt: 'Logo YS',
 		privacy: "Ce site n'utilise ni cookies, ni statistiques, ni ressources tierces."
 	}
 };

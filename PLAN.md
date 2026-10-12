@@ -8,7 +8,7 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-12, les jalons 0 à 3 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire. Le dépôt git n'a pas de dépôt distant.
+Au 2026-10-12, les jalons 0 à 3 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
 
 **Prochaine étape : démonstration interactive (jalon 4).**
 
@@ -56,7 +56,7 @@ Tests Playwright : présence des sections dans les deux langues, cible du bouton
 
 ### 6. Mise en ligne - À faire
 
-Créer le dépôt public sur GitHub et le workflow GitHub Actions qui lance la vérification de types, le build et les tests, puis déploie sur GitHub Pages à chaque push sur `main`.
+Activer GitHub Pages sur le dépôt (déjà créé et public) et écrire le workflow GitHub Actions qui lance la vérification de types, le build et les tests, puis déploie sur GitHub Pages à chaque push sur `main`.
 
 **Sortie attendue :** site accessible à son adresse publique dans les deux langues ; le déploiement échoue si un test échoue.
 

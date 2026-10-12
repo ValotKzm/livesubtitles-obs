@@ -100,6 +100,8 @@ export const en = {
 		thirdParty: 'Third-party software and models'
 	},
 	footer: {
+		madeBy: 'Made by',
+		logoAlt: 'YS logo',
 		privacy: 'This site uses no cookies, no analytics and no third-party resources.'
 	}
 };
