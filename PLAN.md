@@ -8,9 +8,9 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-12, les jalons 0 à 4 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec la démonstration provisoire et un simulateur interactif. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
+Au 2026-10-14, les jalons 0 à 5 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec une illustration animée en guise de démonstration et un simulateur interactif, le tout couvert par des tests Playwright et axe. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
 
-**Prochaine étape : tests et qualité (jalon 5).**
+**Prochaine étape : mise en ligne (jalon 6).**
 
 ## Jalons
 
@@ -50,7 +50,9 @@ Intégrer `public/demo/demo-placeholder.svg` à l'emplacement de la future vidé
 
 **Sortie attendue :** simulateur utilisable au clavier, animations coupées sous `prefers-reduced-motion`, contenu de repli lisible sans JavaScript.
 
-### 5. Tests et qualité - À faire
+### 5. Tests et qualité - Terminé (2026-10-14)
+
+Vérifié le 2026-10-14 : `pnpm test` passe (25 tests dans Edge, sur le build servi par `astro preview`). Couvert : six sections et titre dans les deux langues, cible du bouton de téléchargement, lien d'évitement, sélecteur de langue, accroche et téléchargement visibles sans défiler à 1440 et 360 px sans défilement horizontal, page sans JavaScript, simulateur (Pause, même langue, clavier, `prefers-reduced-motion`), bouton de thème (rechargement et changement de langue), axe sans violation dans les deux langues et quatre états de thème, aucune requête vers un autre domaine. Les tests ont révélé un débordement de l'en-tête à 360 px, corrigé en masquant le nom du logo sous 460 px (il reste lu par les lecteurs d'écran). Non vérifié : Firefox et Safari, l'intérieur de l'illustration SVG (axe ne le voit pas, d'où le texte alternatif complet).
 
 Tests Playwright : présence des sections dans les deux langues, cible du bouton de téléchargement, changement de langue, simulateur. Contrôle d'accessibilité avec axe. Contrôle qu'aucune requête ne part vers un autre domaine au chargement de la page.
 
