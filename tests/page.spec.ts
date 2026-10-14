@@ -31,6 +31,15 @@ for (const locale of locales) {
 			await expect(download).toHaveAttribute('href', links.download);
 		});
 
+		test('les langues à venir renvoient vers le suivi des demandes', async ({ page }) => {
+			await page.goto(paths[locale]);
+			await expect(page.getByText(t.requirements.upcoming)).toBeVisible();
+			await expect(page.getByRole('link', { name: t.requirements.upcomingLink })).toHaveAttribute(
+				'href',
+				links.issues
+			);
+		});
+
 		test('le lien d’évitement mène au contenu', async ({ page }) => {
 			await page.goto(paths[locale]);
 			await page.keyboard.press('Tab');

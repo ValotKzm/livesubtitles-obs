@@ -27,6 +27,7 @@ Non vérifié : Firefox et Safari, et l'effet réel de l'animation `.reveal` au 
 - **Adresse de son portfolio** : la signature du pied de page pointe vers GitHub en attendant (`links.author` dans `src/i18n/links.ts`).
 - **Charte graphique** : il a dit « utilise-la comme tu veux pour l'instant, on verra après ». Le choix actuel (palette et Montserrat, sans l'imagerie gothique) peut donc être revu.
 - **Textes** : l'accroche et les formulations hors README ont été rédigées sans relecture de sa part.
+- **README du plugin** : le site annonce depuis le 2026-10-14 que d'autres langues sont envisagées, dont le russe. Le README du plugin ne le dit pas encore ; à y ajouter pour que les deux restent d'accord.
 - **Langue par défaut** : l'anglais est à la racine, par choix de l'assistant. Il n'a pas réagi ; à inverser s'il préfère le français.
 
 ## Pièges rencontrés

@@ -101,6 +101,8 @@ export const en = {
 				value: 'French and English, in both directions, or subtitles without translation'
 			}
 		],
+		upcoming: 'LiveSubtitles keeps improving, and more languages are being considered, including Russian.',
+		upcomingLink: 'Missing a language? Tell us on GitHub.',
 		limitsTitle: 'Good to know',
 		limits: [
 			'Subtitles appear a second or two after each sentence, not word by word.',

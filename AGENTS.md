@@ -41,6 +41,7 @@ Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulte
 
 - Les couleurs sont des variables CSS définies dans `src/styles/global.css`, en clair et en sombre, puis exposées à Tailwind (`bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `text-accent`, `bg-cta`, `border-line`). Utiliser ces noms, jamais une couleur de la palette Tailwind ni un code écrit en dur, sinon un des deux thèmes casse.
 - Le thème suit `prefers-color-scheme` par défaut. Le bouton de l'en-tête pose `data-theme` sur `<html>` et retient le choix dans `localStorage` (deux petits scripts en ligne dans `src/layouts/Base.astro`, les seuls de la page hors îlot React). Sans JavaScript, le bouton reste caché. Les valeurs du thème sombre existent en deux exemplaires dans `global.css` (système et choix manuel) : modifier les deux.
+- L'icône de l'en-tête (`src/layouts/Base.astro`) suit le thème : tuile de la couleur du texte (`fill-ink`), barre du haut en `fill-logo-bar` (cyan en clair, bleu-vert foncé en sombre), barre du bas en `fill-bg`. Le favicon (`public/favicon.svg`) garde la tuile sombre fixe.
 - La palette vient de la charte personnelle de l'utilisateur : bleu nuit `#0A0F14`, blanc cassé `#E8E8E8`, cyan `#00E5FF` en accent. Le cyan n'étant pas lisible sur fond clair, le thème clair utilise un bleu-vert foncé. L'imagerie gothique de la charte n'est pas reprise. Ce choix est provisoire : l'utilisateur a dit vouloir y revenir.
 - `src/assets/logo-ys-cyan.png` est le logo personnel de l'utilisateur, en version à reflets cyan sur fond transparent, copiée de `_private/logo-ys-cyan.png` à sa demande. Il sert de signature dans le pied de page, toujours sur une pastille sombre car il est illisible sur fond clair. La signature affiche « Yannick Souza », à la demande de l'utilisateur (le site figure dans son portfolio), avec un lien vers son profil GitHub.
 - Police : Montserrat variable, fournie par le paquet `@fontsource-variable/montserrat` et servie avec le site.
@@ -60,6 +61,7 @@ Les textes viennent du `README.md` du plugin, qui existe en français et en angl
 
 - Gratuit, logiciel libre (GPL version 2 ou ultérieure), sans compte, clé API ni serveur. La voix ne quitte pas l'ordinateur et rien n'est enregistré.
 - Français et anglais uniquement, dans les deux sens, ou sous-titres sans traduction.
+- D'autres langues sont envisagées, dont le russe (décision de l'utilisateur, 2026-10-14), et le plugin continue d'évoluer. Toujours au conditionnel ou avec « envisagé » : ni date, ni promesse, ni autre langue citée sans son accord.
 - Windows 10 ou 11 (64 bits) et OBS Studio 31.1 ou plus récent. Environ 300 Mo sur le disque et 500 Mo de mémoire pendant l'écoute.
 - Les sous-titres apparaissent une à deux secondes après chaque phrase : ne pas parler de sous-titrage instantané ou mot à mot.
 - La traduction convient à la conversation courante, sans être parfaite, et connaît mal le vocabulaire du streaming.
