@@ -64,7 +64,7 @@ Activer GitHub Pages sur le dépôt (déjà créé et public) et écrire le work
 
 ### 7. Contenu réel et raccordement au plugin - À faire
 
-Remplacer la démonstration provisoire par la vidéo enregistrée par l'utilisateur, avec un équivalent textuel, et ajouter la capture de l'avertissement Windows. Reporter l'adresse du site dans le dépôt du plugin : `buildspec.json`, l'installateur et le README (voir son `NOTES.md`).
+Si l'utilisateur enregistre une vraie vidéo, la mettre à la place de l'illustration (`public/demo/demo-cartoon.svg`), avec un équivalent textuel, et ajouter la capture de l'avertissement Windows. Reporter l'adresse du site dans le dépôt du plugin : `buildspec.json`, l'installateur et le README (voir son `NOTES.md`).
 
 **Sortie attendue :** plus aucun fichier provisoire en ligne ; l'adresse du site figure dans le dépôt du plugin.
 

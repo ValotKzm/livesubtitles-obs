@@ -26,10 +26,10 @@ export const en = {
 	},
 	demo: {
 		title: 'See it in action',
-		alt: 'Placeholder demo: subtitles appear and fade out on a mock stream scene.',
+		alt: "Animated illustration: a cartoon streamer plays a shooter game and speaks French. A second or two after each sentence, the English subtitle appears at the bottom of the picture, then fades out: “Hi everyone, welcome to the stream!”, “Watch out, there's one behind the crate!”, “Not bad, let's move on to the next level.”",
 		caption:
 			'You speak into your microphone. A second or two after each sentence, the subtitle appears on your stream, then fades out by itself.',
-		placeholder: 'Placeholder: the real recording is coming.',
+		note: 'Drawn illustration, not a real capture. The speech bubble shows what the streamer says; only the subtitle at the bottom comes from LiveSubtitles.',
 		simulator: {
 			title: 'Try the simulator',
 			settings: 'Simulator settings',

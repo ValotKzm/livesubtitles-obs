@@ -77,7 +77,7 @@ Les textes viennent du `README.md` du plugin, qui existe en français et en angl
 
 ## Fichiers provisoires et privés
 
-`public/demo/demo-placeholder.svg` est une fausse démonstration animée, au format 16:9, en attendant la vraie vidéo que l'utilisateur enregistrera. Elle porte la mention « Démo provisoire » et ne doit pas partir en ligne telle quelle. Ne pas fabriquer de fausse capture d'OBS présentée comme réelle.
+`public/demo/demo-cartoon.svg` est une illustration animée en SVG et CSS, au format 16:9 : un streamer dessiné, un jeu de tir cartoon et les sous-titres traduits qui arrivent une à deux secondes après chaque phrase. Elle porte la mention « ILLUSTRATION » et la légende précise que ce n'est pas une capture réelle. L'utilisateur pourra la remplacer plus tard par une vraie vidéo. Ne pas fabriquer de fausse capture d'OBS présentée comme réelle.
 
 
 
