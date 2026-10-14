@@ -8,9 +8,9 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-14, les jalons 0 à 5 sont terminés. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec une illustration animée en guise de démonstration et un simulateur interactif, le tout couvert par des tests Playwright et axe. Le code est poussé sur https://github.com/ValotKzm/livesubtitles-website (dépôt public) ; GitHub Pages n'est pas encore activé.
+Au 2026-10-14, les jalons 0 à 6 sont terminés et le site est en ligne sur https://valotkzm.github.io/livesubtitles-website/. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec une illustration animée en guise de démonstration et un simulateur interactif, le tout couvert par des tests Playwright et axe. Le code est sur https://github.com/ValotKzm/livesubtitles-website (dépôt public).
 
-**Prochaine étape : mise en ligne (jalon 6).**
+**Prochaine étape : contenu réel et raccordement au plugin (jalon 7).**
 
 ## Jalons
 
@@ -58,7 +58,9 @@ Tests Playwright : présence des sections dans les deux langues, cible du bouton
 
 **Sortie attendue :** tous les tests passent en local ; aucune violation axe ; aucune requête tierce.
 
-### 6. Mise en ligne - À faire
+### 6. Mise en ligne - Terminé (2026-10-14)
+
+Vérifié le 2026-10-14 : GitHub Pages activé avec GitHub Actions comme source. Le workflow `.github/workflows/deploy.yml` lance `pnpm check` puis `pnpm test` (27 tests dans Chromium, passés sur la pull request n° 1), puis construit avec `withastro/action` et déploie ; sur une pull request, il s'arrête après les tests.
 
 Activer GitHub Pages sur le dépôt (déjà créé et public) et écrire le workflow GitHub Actions qui lance la vérification de types, le build et les tests, puis déploie sur GitHub Pages à chaque push sur `main`.
 
