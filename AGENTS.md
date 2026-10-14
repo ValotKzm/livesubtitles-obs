@@ -17,7 +17,7 @@ Priorités, dans l'ordre : exactitude de ce qui est affirmé, simplicité pour u
 - **Playwright** avec **axe** pour les tests de bout en bout et d'accessibilité.
 - **pnpm** comme gestionnaire de paquets ; **GitHub Actions** pour vérifier et déployer sur **GitHub Pages**.
 
-Versions installées le 2026-10-12 : Astro 7, React 19, Tailwind CSS 4 (plugin Vite, importé dans `src/styles/global.css`), TypeScript 6. Rester sur TypeScript 6 : `astro check` refuse TypeScript 7. Playwright n'est pas encore installé (jalon 5 de `PLAN.md`).
+Versions installées le 2026-10-12 : Astro 7, React 19, Tailwind CSS 4 (plugin Vite, importé dans `src/styles/global.css`), TypeScript 6. Rester sur TypeScript 6 : `astro check` refuse TypeScript 7. Playwright 1.64 et `@axe-core/playwright` 4.13 ajoutés le 2026-10-14. En local, les tests tournent dans Edge (`channel: 'msedge'`), le téléchargement du Chromium de Playwright ayant bloqué ; en intégration continue (`CI` défini), ils utilisent Chromium.
 
 ## Commandes
 
@@ -28,6 +28,7 @@ pnpm astro dev status         # état du serveur ; `stop` pour l'arrêter, `logs
 pnpm check                    # vérification de types (astro check)
 pnpm build                    # build statique dans dist/
 pnpm preview                  # sert dist/ en local
+pnpm test                     # build, puis tests Playwright et axe sur le port 4322
 ```
 
 Ne pas lancer `pnpm build` pendant que le serveur de développement tourne : le build remplace le cache des dépendances et l'îlot React plante ensuite en développement (`_jsxDEV is not a function`). Si cela arrive, arrêter puis relancer le serveur.
@@ -41,7 +42,7 @@ Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulte
 - Les couleurs sont des variables CSS définies dans `src/styles/global.css`, en clair et en sombre, puis exposées à Tailwind (`bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `text-accent`, `bg-cta`, `border-line`). Utiliser ces noms, jamais une couleur de la palette Tailwind ni un code écrit en dur, sinon un des deux thèmes casse.
 - Le thème suit `prefers-color-scheme` par défaut. Le bouton de l'en-tête pose `data-theme` sur `<html>` et retient le choix dans `localStorage` (deux petits scripts en ligne dans `src/layouts/Base.astro`, les seuls de la page hors îlot React). Sans JavaScript, le bouton reste caché. Les valeurs du thème sombre existent en deux exemplaires dans `global.css` (système et choix manuel) : modifier les deux.
 - La palette vient de la charte personnelle de l'utilisateur : bleu nuit `#0A0F14`, blanc cassé `#E8E8E8`, cyan `#00E5FF` en accent. Le cyan n'étant pas lisible sur fond clair, le thème clair utilise un bleu-vert foncé. L'imagerie gothique de la charte n'est pas reprise. Ce choix est provisoire : l'utilisateur a dit vouloir y revenir.
-- `src/assets/logo-ys.png` est le logo personnel de l'utilisateur, détouré sur fond transparent à partir de son fichier d'origine sur fond noir (conservé dans `_private/logo-ys-original.png`). Il sert de signature dans le pied de page, toujours sur une pastille sombre car il est illisible sur fond clair. La signature affiche « Yannick Souza », à la demande de l'utilisateur (le site figure dans son portfolio), avec un lien vers son profil GitHub.
+- `src/assets/logo-ys-cyan.png` est le logo personnel de l'utilisateur, en version à reflets cyan sur fond transparent, copiée de `_private/logo-ys-cyan.png` à sa demande. Il sert de signature dans le pied de page, toujours sur une pastille sombre car il est illisible sur fond clair. La signature affiche « Yannick Souza », à la demande de l'utilisateur (le site figure dans son portfolio), avec un lien vers son profil GitHub.
 - Police : Montserrat variable, fournie par le paquet `@fontsource-variable/montserrat` et servie avec le site.
 - Animations en CSS uniquement, toutes dans `@media (prefers-reduced-motion: no-preference)` : `.enter` à l'arrivée, `.reveal` au défilement (seulement si le navigateur connaît `animation-timeline`), `.lift` au survol. Le contenu doit rester visible quand elles ne jouent pas.
 
