@@ -16,6 +16,7 @@
 	--cta-hover: #00596a;
 	--cta-ink: #ffffff;
 	--glow: rgb(0 229 255 / 0.22);
+	--logo-bar: #00e5ff;
 }
 
 /* Sombre si le système le demande, sauf si le visiteur a choisi le clair. */
@@ -33,6 +34,7 @@
 		--cta-hover: #6ff1ff;
 		--cta-ink: #0a0f14;
 		--glow: rgb(0 229 255 / 0.14);
+		--logo-bar: #006d7c;
 	}
 }
 
@@ -50,6 +52,7 @@
 	--cta-hover: #6ff1ff;
 	--cta-ink: #0a0f14;
 	--glow: rgb(0 229 255 / 0.14);
+	--logo-bar: #006d7c;
 }
 
 :root[data-theme="light"] {
@@ -92,6 +95,7 @@
 	--color-cta: var(--cta);
 	--color-cta-hover: var(--cta-hover);
 	--color-cta-ink: var(--cta-ink);
+	--color-logo-bar: var(--logo-bar);
 }
 
 @layer base {

@@ -1,6 +1,6 @@
 ---
 import Section from './Section.astro';
-import type { Dictionary } from '../i18n';
+import { links, type Dictionary } from '../i18n';
 
 interface Props {
 	t: Dictionary['requirements'];
@@ -11,16 +11,22 @@ const { t } = Astro.props;
 
 <Section id="requirements" title={t.title}>
 	<div class="grid gap-5 lg:grid-cols-2">
-		<dl class="card divide-y divide-line py-2">
-			{
-				t.items.map((item) => (
-					<div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4">
-						<dt class="font-bold">{item.label}</dt>
-						<dd class="text-muted">{item.value}</dd>
-					</div>
-				))
-			}
-		</dl>
+		<div class="card py-2">
+			<dl class="divide-y divide-line">
+				{
+					t.items.map((item) => (
+						<div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4">
+							<dt class="font-bold">{item.label}</dt>
+							<dd class="text-muted">{item.value}</dd>
+						</div>
+					))
+				}
+			</dl>
+			<p class="border-t border-line pb-2 pt-4 text-muted">
+				{t.upcoming}{' '}
+				<a href={links.issues} class="font-semibold text-accent underline underline-offset-4">{t.upcomingLink}</a>
+			</p>
+		</div>
 
 		<div class="card">
 			<h3 class="text-xl font-bold">{t.limitsTitle}</h3>

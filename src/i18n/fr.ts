@@ -101,6 +101,8 @@ export const fr: Dictionary = {
 				value: 'Français et anglais, dans les deux sens, ou sous-titres sans traduction'
 			}
 		],
+		upcoming: "LiveSubtitles continue d'évoluer et d'autres langues sont envisagées, dont le russe.",
+		upcomingLink: 'Une langue vous manque ? Dites-le sur GitHub.',
 		limitsTitle: 'Bon à savoir',
 		limits: [
 			'Les sous-titres apparaissent une à deux secondes après chaque phrase, pas mot à mot.',
