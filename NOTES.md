@@ -10,7 +10,7 @@ Ce qui existe :
 
 - Une page en anglais (`/`) et en français (`/fr/`) avec les six sections, rédigées à partir du README du plugin.
 - Thèmes clair et sombre avec un bouton dans l'en-tête, police Montserrat servie avec le site, animations CSS.
-- Une fausse démonstration animée (`public/demo/demo-placeholder.svg`) à l'emplacement de la future vidéo.
+- Une illustration animée en cartoon (`public/demo/demo-cartoon.svg`) comme démonstration, en attendant une éventuelle vraie vidéo.
 - Un simulateur interactif en React sous la démonstration.
 - Dans le pied de page, la signature « Créé par Yannick Souza » avec son logo, liée à son profil GitHub.
 

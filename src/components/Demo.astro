@@ -13,10 +13,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Section id="demo" title={t.title}>
 	<figure>
-		<!-- Fichier provisoire : à remplacer par la vraie vidéo (jalon 7 de PLAN.md). -->
 		<img
 			class="w-full rounded-2xl border border-line shadow-2xl shadow-black/20"
-			src={`${base}/demo/demo-placeholder.svg`}
+			src={`${base}/demo/demo-cartoon.svg`}
 			alt={t.alt}
 			width="1920"
 			height="1080"
@@ -24,7 +23,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		/>
 		<figcaption class="mt-5 max-w-3xl text-lg text-muted">
 			{t.caption}
-			<span class="mt-1 block text-sm">{t.placeholder}</span>
+			<span class="mt-1 block text-sm">{t.note}</span>
 		</figcaption>
 	</figure>
 

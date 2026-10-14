@@ -26,10 +26,10 @@ export const fr: Dictionary = {
 	},
 	demo: {
 		title: 'Voyez-le en action',
-		alt: "Démo provisoire : des sous-titres apparaissent puis s'effacent sur une scène de stream fictive.",
+		alt: "Illustration animée : un streamer dessiné joue à un jeu de tir et parle en français. Une à deux secondes après chaque phrase, le sous-titre traduit en anglais apparaît en bas de l'image, puis s'efface : « Hi everyone, welcome to the stream! », « Watch out, there's one behind the crate! », « Not bad, let's move on to the next level. »",
 		caption:
 			"Vous parlez dans votre microphone. Une à deux secondes après chaque phrase, le sous-titre apparaît sur votre stream, puis s'efface de lui-même.",
-		placeholder: 'Démo provisoire : le véritable enregistrement arrive.',
+		note: "Illustration dessinée, pas une capture réelle. La bulle montre ce que dit le streamer ; seul le sous-titre en bas vient de LiveSubtitles.",
 		simulator: {
 			title: 'Essayez le simulateur',
 			settings: 'Réglages du simulateur',

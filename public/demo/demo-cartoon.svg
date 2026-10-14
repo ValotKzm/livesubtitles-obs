@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="t d">
+  <title id="t">Illustration de LiveSubtitles</title>
+  <desc id="d">Illustration animée : un streamer dessiné joue à un jeu de tir cartoon et parle en français. Une à deux secondes après chaque phrase, le sous-titre traduit en anglais apparaît en bas de l'image, puis s'efface.</desc>
+  <style>
+    text { font-family: "Segoe UI", system-ui, sans-serif; }
+    .sub, .bub, .flash, .pow, .plus, .talk { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+      .cloud { animation: drift 70s linear infinite; }
+      .c2 { animation-duration: 95s; animation-delay: -40s; }
+      .c3 { animation-duration: 80s; animation-delay: -65s; }
+      .bob { animation: bob 2.4s ease-in-out infinite alternate; }
+      .recoil { animation: recoil 24s infinite; }
+      .flash { animation: flash 24s infinite; }
+      .enemy { transform-box: fill-box; transform-origin: 50% 100%; animation: enemy 24s infinite; }
+      .pow { transform-box: fill-box; transform-origin: center; animation: pow 24s infinite; }
+      .plus { animation: plus 24s infinite; }
+      .eyes { transform-box: fill-box; transform-origin: center; animation: blink 4.5s infinite; }
+      .talk { animation: talk 8s infinite; }
+      .smile { animation: smile 8s infinite; }
+      .flap { transform-box: fill-box; transform-origin: center; animation: flap .22s ease-in-out infinite alternate; }
+      .bub { animation: bub 24s infinite; }
+      .sub { animation: sub 24s infinite; }
+      .n2 { animation-delay: 8s; }
+      .n3 { animation-delay: 16s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sub.n1 { opacity: 1; }
+      .enemy { transform: translateY(161px); }
+    }
+    @keyframes drift { from { transform: translateX(-400px); } to { transform: translateX(2300px); } }
+    @keyframes bob { to { transform: translateY(10px); } }
+    @keyframes blink { 0%, 95%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+    /* Le streamer parle pendant les 3 premières secondes de chaque phrase de 8 s. */
+    @keyframes talk { 0%, 37% { opacity: 1; } 38%, 100% { opacity: 0; } }
+    @keyframes smile { 0%, 37% { opacity: 0; } 38%, 100% { opacity: 1; } }
+    @keyframes flap { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+    /* Bulle pendant la parole (0 à 3,4 s), sous-titre de 4,5 à 7,5 s : le délai réel du plugin. */
+    @keyframes bub { 0% { opacity: 0; } 1%, 13.5% { opacity: 1; } 14.5%, 100% { opacity: 0; } }
+    @keyframes sub { 0%, 18.5% { opacity: 0; } 19.5%, 31% { opacity: 1; } 32.5%, 100% { opacity: 0; } }
+    /* L'ennemi surgit pendant la 2e phrase et se fait toucher à 12,6 s. */
+    @keyframes enemy {
+      0%, 30% { transform: translateY(161px); opacity: 1; }
+      32.5% { transform: translateY(0); }
+      33.5% { transform: translateY(10px); }
+      34.5%, 52.5% { transform: translateY(0) scale(1); opacity: 1; }
+      54%, 99.8% { transform: translateY(0) scale(1.4); opacity: 0; }
+      100% { transform: translateY(161px); opacity: 0; }
+    }
+    @keyframes flash { 0%, 52% { opacity: 0; } 52.2% { opacity: 1; } 53% { opacity: 0; } }
+    @keyframes recoil { 0%, 52% { transform: translateX(0); } 52.3% { transform: translateX(30px); } 54%, 100% { transform: translateX(0); } }
+    @keyframes pow { 0%, 52.3% { opacity: 0; transform: scale(.4); } 53% { opacity: 1; transform: scale(1.1); } 55.5% { opacity: 1; transform: scale(1); } 57%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes plus { 0%, 53% { opacity: 0; transform: translateY(0); } 54% { opacity: 1; } 59% { opacity: 1; transform: translateY(-60px); } 61%, 100% { opacity: 0; transform: translateY(-70px); } }
+  </style>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5cb8f5"/>
+      <stop offset="1" stop-color="#c4ecff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6cc35c"/>
+      <stop offset="1" stop-color="#3f9a45"/>
+    </linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2647"/>
+      <stop offset="1" stop-color="#0f1528"/>
+    </linearGradient>
+    <clipPath id="cam"><rect x="1400" y="50" width="460" height="290" rx="22"/></clipPath>
+    <g id="cloud">
+      <circle cx="0" cy="0" r="40"/><circle cx="45" cy="-20" r="52"/><circle cx="100" cy="0" r="42"/>
+      <rect x="0" y="0" width="100" height="40"/>
+    </g>
+  </defs>
+
+  <!-- jeu : ciel, collines, décor -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <circle cx="300" cy="170" r="80" fill="#ffe066"/>
+  <circle cx="300" cy="170" r="110" fill="#ffe066" opacity=".25"/>
+  <g fill="#fff" opacity=".95">
+    <use href="#cloud" class="cloud" x="200" y="300"/>
+    <use href="#cloud" class="cloud c2" x="700" y="230" transform="scale(.8)"/>
+    <use href="#cloud" class="cloud c3" x="0" y="380"/>
+  </g>
+  <path d="M0 560 Q240 430 480 540 T960 520 T1440 530 T1920 490 V720 H0Z" fill="#9db4ec"/>
+  <path d="M0 650 Q320 560 660 630 T1320 610 T1920 600 V1080 H0Z" fill="url(#ground)"/>
+  <path d="M900 615 Q960 610 1020 615 L1300 1080 H620Z" fill="#e9d398" opacity=".9"/>
+  <path d="M0 780 Q480 730 960 770 T1920 750 V1080 H0Z" fill="#4fa94c" opacity=".55"/>
+
+  <!-- arbres -->
+  <g stroke="#1d2433" stroke-width="6">
+    <rect x="150" y="560" width="30" height="110" fill="#8a5a36"/>
+    <circle cx="165" cy="540" r="70" fill="#3d9e4f"/>
+    <circle cx="110" cy="580" r="45" fill="#47ad59"/>
+    <rect x="1700" y="520" width="26" height="100" fill="#8a5a36"/>
+    <circle cx="1713" cy="500" r="62" fill="#3d9e4f"/>
+  </g>
+
+  <!-- petite caisse -->
+  <g stroke="#1d2433" stroke-width="6" stroke-linejoin="round">
+    <rect x="420" y="650" width="120" height="110" rx="8" fill="#c98a4b"/>
+    <path d="M420 650 L540 760 M540 650 L420 760" fill="none"/>
+  </g>
+
+  <!-- ennemi, caché derrière la grande caisse au repos -->
+  <g class="enemy" stroke="#1d2433" stroke-width="6" stroke-linejoin="round">
+    <path d="M955 480 V462" fill="none"/>
+    <circle cx="955" cy="455" r="10" fill="#ff5d7a"/>
+    <rect x="895" y="478" width="120" height="110" rx="42" fill="#a66bf0"/>
+    <circle cx="955" cy="528" r="27" fill="#fff"/>
+    <circle cx="960" cy="532" r="11" fill="#1d2433" stroke="none"/>
+    <path d="M925 497 L978 507" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- grande caisse -->
+  <g stroke="#1d2433" stroke-width="7" stroke-linejoin="round">
+    <rect x="875" y="600" width="160" height="155" rx="10" fill="#d99550"/>
+    <rect x="895" y="620" width="120" height="115" rx="4" fill="none"/>
+    <path d="M895 620 L1015 735" fill="none"/>
+  </g>
+
+  <!-- impact -->
+  <g class="pow">
+    <polygon points="955,440 980,500 1040,480 1005,530 1060,570 995,570 1000,630 955,590 910,630 915,570 850,570 905,530 870,480 930,500" fill="#ffd23f" stroke="#1d2433" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <text class="plus" x="955" y="430" font-size="56" font-weight="800" text-anchor="middle" fill="#ffd23f" stroke="#1d2433" stroke-width="3" paint-order="stroke">+100</text>
+
+  <!-- viseur -->
+  <g stroke-linecap="round">
+    <g stroke="#1d2433" stroke-width="10">
+      <path d="M960 500 V522 M960 558 V580 M920 540 H942 M978 540 H1000"/>
+    </g>
+    <g stroke="#fff" stroke-width="5">
+      <path d="M960 500 V522 M960 558 V580 M920 540 H942 M978 540 H1000"/>
+    </g>
+    <circle cx="960" cy="540" r="4" fill="#fff" stroke="#1d2433" stroke-width="2"/>
+  </g>
+
+  <!-- arme en vue subjective -->
+  <g class="bob">
+    <g transform="translate(1630 925) rotate(28)">
+      <g class="recoil">
+        <g class="flash">
+          <polygon points="-200,0 -250,-40 -240,-12 -300,0 -240,12 -250,40" fill="#ffd23f" stroke="#ff8a1f" stroke-width="5" stroke-linejoin="round"/>
+        </g>
+        <g stroke="#1d2433" stroke-width="7" stroke-linejoin="round">
+          <rect x="-195" y="-44" width="34" height="88" rx="10" fill="#2b3550"/>
+          <rect x="-170" y="-34" width="160" height="68" rx="16" fill="#3fd0c9"/>
+          <rect x="-40" y="-62" width="380" height="124" rx="34" fill="#ff8a3d"/>
+          <rect x="20" y="-82" width="120" height="30" rx="12" fill="#2b3550"/>
+          <path d="M0 -20 H240" fill="none" stroke="#ffc08a" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="150" cy="55" r="62" fill="#2b3550"/>
+          <path d="M100 30 Q150 10 200 30" fill="none" stroke="#46557d" stroke-width="8"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- interface du jeu -->
+  <g>
+    <path d="M78 995 c-18-18-30-28-30-44 a17 17 0 0 1 30-10 a17 17 0 0 1 30 10 c0 16-12 26-30 44z" fill="#ff5d7a" stroke="#1d2433" stroke-width="5"/>
+    <rect x="125" y="948" width="230" height="34" rx="17" fill="#1d2433" fill-opacity=".55" stroke="#1d2433" stroke-width="5"/>
+    <rect x="131" y="954" width="170" height="22" rx="11" fill="#5ee07a"/>
+  </g>
+
+  <!-- webcam du streamer -->
+  <g clip-path="url(#cam)">
+    <rect x="1400" y="50" width="460" height="290" fill="url(#room)"/>
+    <rect x="1400" y="78" width="460" height="6" fill="#00e5ff" opacity=".9"/>
+    <rect x="1400" y="70" width="460" height="22" fill="#00e5ff" opacity=".15"/>
+    <rect x="1440" y="130" width="70" height="90" rx="6" fill="#2d3a66"/>
+    <path d="M1452 200 L1475 160 L1498 200Z" fill="#ff5d7a"/>
+    <rect x="1760" y="200" width="80" height="8" fill="#3a4a7a"/>
+    <path d="M1780 200 q-6-30 10-36 q10 14 0 36z M1795 200 q4-34 22-30 q0 18-14 30z" fill="#47ad59"/>
+    <rect x="1785" y="185" width="26" height="18" rx="3" fill="#c98a4b"/>
+    <!-- fauteuil -->
+    <rect x="1530" y="160" width="200" height="220" rx="40" fill="#c23b5a" stroke="#1d2433" stroke-width="5"/>
+    <!-- buste -->
+    <path d="M1515 345 Q1520 252 1630 248 Q1740 252 1745 345Z" fill="#6c5cff" stroke="#1d2433" stroke-width="5"/>
+    <path d="M1612 255 v40 M1648 255 v40" stroke="#e8e8e8" stroke-width="4" stroke-linecap="round"/>
+    <rect x="1615" y="222" width="30" height="34" fill="#e9b17f" stroke="#1d2433" stroke-width="5"/>
+    <!-- tête -->
+    <circle cx="1630" cy="175" r="62" fill="#f2c094" stroke="#1d2433" stroke-width="5"/>
+    <path d="M1568 170 Q1560 102 1612 104 Q1620 82 1645 100 Q1672 86 1680 114 Q1708 122 1693 170 Q1682 134 1642 138 Q1602 130 1568 170Z" fill="#3a2a20" stroke="#1d2433" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="1598" cy="195" r="10" fill="#ff8fa3" opacity=".5"/>
+    <circle cx="1662" cy="195" r="10" fill="#ff8fa3" opacity=".5"/>
+    <path d="M1598 150 q10-6 20 0 M1642 150 q10-6 20 0" fill="none" stroke="#1d2433" stroke-width="5" stroke-linecap="round"/>
+    <g class="eyes">
+      <ellipse cx="1608" cy="170" rx="7" ry="9" fill="#1d2433"/>
+      <ellipse cx="1652" cy="170" rx="7" ry="9" fill="#1d2433"/>
+    </g>
+    <path class="smile" d="M1614 203 Q1630 216 1646 203" fill="none" stroke="#1d2433" stroke-width="5" stroke-linecap="round"/>
+    <g class="talk">
+      <ellipse class="flap" cx="1630" cy="207" rx="12" ry="9" fill="#7a2232" stroke="#1d2433" stroke-width="4"/>
+    </g>
+    <!-- casque et micro -->
+    <path d="M1562 172 Q1562 92 1630 90 Q1698 92 1698 172" fill="none" stroke="#1d2433" stroke-width="12"/>
+    <rect x="1548" y="148" width="28" height="54" rx="11" fill="#1d2433"/>
+    <rect x="1684" y="148" width="28" height="54" rx="11" fill="#1d2433"/>
+    <rect x="1553" y="160" width="6" height="30" rx="3" fill="#00e5ff"/>
+    <rect x="1701" y="160" width="6" height="30" rx="3" fill="#00e5ff"/>
+    <path d="M1562 198 Q1572 232 1600 226" fill="none" stroke="#1d2433" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="1604" cy="225" r="9" fill="#2b3550" stroke="#1d2433" stroke-width="3"/>
+    <!-- badge en direct -->
+    <rect x="1418" y="290" width="90" height="34" rx="8" fill="#e5304f"/>
+    <circle cx="1437" cy="307" r="6" fill="#fff"/>
+    <text x="1450" y="317" font-size="24" font-weight="800" fill="#fff">LIVE</text>
+  </g>
+  <rect x="1400" y="50" width="460" height="290" rx="22" fill="none" stroke="#00e5ff" stroke-width="6"/>
+
+  <!-- mention : ce n'est pas une capture réelle -->
+  <rect x="40" y="36" width="250" height="52" rx="12" fill="#1d2433" fill-opacity=".75"/>
+  <text x="165" y="72" font-size="28" font-weight="700" text-anchor="middle" fill="#fff" letter-spacing="2">ILLUSTRATION</text>
+
+  <!-- ce que dit le streamer (en français) -->
+  <g class="bub n1">
+    <rect x="850" y="70" width="480" height="140" rx="28" fill="#fff" stroke="#1d2433" stroke-width="5"/>
+    <path d="M1327 118 L1392 150 L1327 168" fill="#fff" stroke="#1d2433" stroke-width="5" stroke-linejoin="round"/>
+    <text x="1090" y="128" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">Salut tout le monde,</text>
+    <text x="1090" y="174" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">bienvenue sur le stream !</text>
+  </g>
+  <g class="bub n2">
+    <rect x="850" y="70" width="480" height="140" rx="28" fill="#fff" stroke="#1d2433" stroke-width="5"/>
+    <path d="M1327 118 L1392 150 L1327 168" fill="#fff" stroke="#1d2433" stroke-width="5" stroke-linejoin="round"/>
+    <text x="1090" y="128" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">Attention, il y en a un</text>
+    <text x="1090" y="174" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">derrière la caisse !</text>
+  </g>
+  <g class="bub n3">
+    <rect x="850" y="70" width="480" height="140" rx="28" fill="#fff" stroke="#1d2433" stroke-width="5"/>
+    <path d="M1327 118 L1392 150 L1327 168" fill="#fff" stroke="#1d2433" stroke-width="5" stroke-linejoin="round"/>
+    <text x="1090" y="128" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">Pas mal, on passe</text>
+    <text x="1090" y="174" font-size="32" font-weight="600" text-anchor="middle" fill="#1d2433">au niveau suivant.</text>
+  </g>
+
+  <!-- sous-titres traduits, une à deux secondes après la phrase -->
+  <g class="sub n1">
+    <rect x="510" y="890" width="900" height="100" rx="14" fill="#000" fill-opacity=".75"/>
+    <text x="960" y="957" font-size="48" text-anchor="middle" fill="#fff">Hi everyone, welcome to the stream!</text>
+  </g>
+  <g class="sub n2">
+    <rect x="450" y="890" width="1020" height="100" rx="14" fill="#000" fill-opacity=".75"/>
+    <text x="960" y="957" font-size="48" text-anchor="middle" fill="#fff">Watch out, there's one behind the crate!</text>
+  </g>
+  <g class="sub n3">
+    <rect x="440" y="890" width="1040" height="100" rx="14" fill="#000" fill-opacity=".75"/>
+    <text x="960" y="957" font-size="48" text-anchor="middle" fill="#fff">Not bad, let's move on to the next level.</text>
+  </g>
+</svg>
