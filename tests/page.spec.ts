@@ -51,15 +51,15 @@ for (const locale of locales) {
 	});
 }
 
-test('le sélecteur de langue passe d’une langue à l’autre', async ({ page }) => {
+test('le sélecteur de langue passe d’une langue à l’autre', async ({ page, baseURL }) => {
 	await page.goto(paths.en);
 	await page.getByRole('link', { name: localeNames.fr }).click();
-	await expect(page).toHaveURL(/\/livesubtitles-website\/fr\/$/);
+	await expect(page).toHaveURL(`${baseURL}fr/`);
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText(getDictionary('fr').hero.title);
 	await expect(page.getByRole('link', { name: localeNames.fr })).toHaveAttribute('aria-current', 'page');
 
 	await page.getByRole('link', { name: localeNames.en }).click();
-	await expect(page).toHaveURL(/\/livesubtitles-website\/$/);
+	await expect(page).toHaveURL(baseURL!);
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText(getDictionary('en').hero.title);
 });
 

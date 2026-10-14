@@ -9,7 +9,7 @@ export default defineConfig({
   // GitHub Pages : le site est servi sous /<dépôt>/. Avec un nom de domaine
   // propre, changer `site` et supprimer `base`.
   site: 'https://valotkzm.github.io',
-  base: '/livesubtitles-website',
+  base: '/livesubtitles-obs',
 
   // Anglais à la racine, français sous /fr/.
   i18n: {
