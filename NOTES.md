@@ -4,7 +4,7 @@ Ce fichier dit où le travail s'est arrêté, ce qui vient ensuite et les piège
 
 ## Où on en est (fin de la session du 2026-10-14)
 
-Les jalons 0 à 5 sont terminés, fusionnés dans `main` et poussés sur https://github.com/ValotKzm/livesubtitles-website (dépôt public). Le site n'est pas encore en ligne : GitHub Pages n'est pas activé.
+Les jalons 0 à 6 sont terminés, fusionnés dans `main` et poussés sur https://github.com/ValotKzm/livesubtitles-website (dépôt public). Le site est en ligne sur https://valotkzm.github.io/livesubtitles-website/ : chaque push sur `main` relance les tests puis le déploiement (`.github/workflows/deploy.yml`).
 
 Ce qui existe :
 
@@ -15,9 +15,11 @@ Ce qui existe :
 - Dans le pied de page, la signature « Créé par Yannick Souza » avec son logo à reflets cyan (`src/assets/logo-ys-cyan.png`), liée à son profil GitHub.
 - Des tests Playwright et axe (`tests/`, lancés par `pnpm test`).
 
-## Prochaine étape : jalon 6, mise en ligne
+## Prochaine étape : jalon 7, contenu réel et raccordement au plugin
 
-Activer GitHub Pages et écrire le workflow GitHub Actions : `pnpm check`, puis `pnpm exec playwright install --with-deps chromium` et `pnpm test` (qui fait le build), puis déploiement. La configuration Playwright bascule d'elle-même sur Chromium quand `CI` est défini.
+Voir `PLAN.md`. Attend surtout l'utilisateur : capture de l'avertissement Windows, vidéo éventuelle, et l'adresse du site à reporter dans le dépôt du plugin.
+
+Idée écartée pour l'instant par l'utilisateur (2026-10-14) : un bouton de téléchargement direct. Le nom de l'installateur contient la version, donc `releases/latest/download/<nom>` ne marcherait qu'avec une copie à nom fixe publiée par le workflow de release du plugin.
 
 Non vérifié : Firefox et Safari, et l'effet réel de l'animation `.reveal` au défilement.
 
