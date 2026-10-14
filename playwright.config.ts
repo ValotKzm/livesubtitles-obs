@@ -3,6 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 // Les tests tournent sur le build statique servi par `astro preview`, sous le
 // même sous-chemin que sur GitHub Pages. Port distinct du serveur de développement.
 const port = 4322;
+// Doit correspondre à `base` dans astro.config.mjs.
+const base = '/livesubtitles-obs/';
 
 export default defineConfig({
 	testDir: 'tests',
@@ -11,7 +13,7 @@ export default defineConfig({
 	retries: process.env.CI ? 1 : 0,
 	reporter: process.env.CI ? 'github' : 'list',
 	use: {
-		baseURL: `http://localhost:${port}/livesubtitles-website/`,
+		baseURL: `http://localhost:${port}${base}`,
 		trace: 'on-first-retry'
 	},
 	// En local, Edge déjà installé sur Windows ; en intégration continue, le
@@ -24,7 +26,7 @@ export default defineConfig({
 	],
 	webServer: {
 		command: `pnpm build && pnpm preview --port ${port}`,
-		url: `http://localhost:${port}/livesubtitles-website/`,
+		url: `http://localhost:${port}${base}`,
 		reuseExistingServer: !process.env.CI,
 		timeout: 120_000
 	}

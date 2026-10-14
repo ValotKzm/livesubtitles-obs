@@ -4,7 +4,7 @@ Ce fichier dit où le travail s'est arrêté, ce qui vient ensuite et les piège
 
 ## Où on en est (fin de la session du 2026-10-14)
 
-Les jalons 0 à 6 sont terminés, fusionnés dans `main` et poussés sur https://github.com/ValotKzm/livesubtitles-website (dépôt public). Le site est en ligne sur https://valotkzm.github.io/livesubtitles-website/ : chaque push sur `main` relance les tests puis le déploiement (`.github/workflows/deploy.yml`).
+Les jalons 0 à 6 sont terminés, fusionnés dans `main` et poussés sur https://github.com/ValotKzm/livesubtitles-obs (dépôt public). Le site est en ligne sur https://valotkzm.github.io/livesubtitles-obs/ : chaque push sur `main` relance les tests puis le déploiement (`.github/workflows/deploy.yml`).
 
 Ce qui existe :
 

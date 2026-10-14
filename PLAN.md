@@ -8,7 +8,7 @@ Une page bilingue (français, anglais), statique, hébergée sur GitHub Pages, q
 
 ## État courant
 
-Au 2026-10-14, les jalons 0 à 6 sont terminés et le site est en ligne sur https://valotkzm.github.io/livesubtitles-website/. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec une illustration animée en guise de démonstration et un simulateur interactif, le tout couvert par des tests Playwright et axe. Le code est sur https://github.com/ValotKzm/livesubtitles-website (dépôt public).
+Au 2026-10-14, les jalons 0 à 6 sont terminés et le site est en ligne sur https://valotkzm.github.io/livesubtitles-obs/. Le site affiche ses six sections en anglais et en français, mises en page en thème clair et sombre, avec une illustration animée en guise de démonstration et un simulateur interactif, le tout couvert par des tests Playwright et axe. Le code est sur https://github.com/ValotKzm/livesubtitles-obs (dépôt public).
 
 **Prochaine étape : contenu réel et raccordement au plugin (jalon 7).**
 
@@ -20,7 +20,7 @@ Stack choisie, contraintes et contenu fixés dans `AGENTS.md`, textes de référ
 
 ### 1. Squelette Astro - Terminé (2026-10-12)
 
-Vérifié le 2026-10-12 : `pnpm check` sans erreur, `pnpm build` réussi, serveur de développement répondant 200 pour la page et la démonstration sous `/livesubtitles-website/`. Le dépôt GitHub s'appellera `livesubtitles-website`, comme la valeur de `base`.
+Vérifié le 2026-10-12 : `pnpm check` sans erreur, `pnpm build` réussi, serveur de développement répondant 200 pour la page et la démonstration sous `/livesubtitles-website/`. Le dépôt GitHub s'appelait d'abord `livesubtitles-website` ; renommé `livesubtitles-obs` le 2026-10-14 à la demande de l'utilisateur, avec `base` mise à jour.
 
 Initialiser le dépôt git et le projet Astro avec TypeScript strict, Tailwind CSS et l'intégration React, en vérifiant les versions courantes dans la documentation officielle. Configurer `site` et `base` pour GitHub Pages. Inscrire les commandes de développement dans `AGENTS.md`.
 

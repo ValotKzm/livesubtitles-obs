@@ -15,7 +15,7 @@ Priorités, dans l'ordre : exactitude de ce qui est affirmé, simplicité pour u
 - **Un îlot React** pour la démonstration interactive (`src/components/SubtitleSimulator.tsx`, chargé avec `client:visible`) : un simulateur à phrases préparées, qui ne capte pas le microphone et ne traduit rien, et qui le dit. Son rendu initial doit rester lisible sans JavaScript ; tout le reste est rendu en HTML sans JavaScript. La page doit rester lisible et le bouton de téléchargement utilisable si JavaScript est désactivé.
 - **Routage i18n d'Astro** : anglais à la racine, français sous `/fr/`, mêmes sections dans les deux langues. Tous les textes sont dans `src/i18n/en.ts` et `src/i18n/fr.ts` ; l'anglais sert de référence de type, donc une clé oubliée en français fait échouer `pnpm check`. Aucun texte visible n'est écrit en dur dans un composant. Les adresses externes sont dans `src/i18n/links.ts`, les liens internes passent par `astro:i18n`.
 - **Playwright** avec **axe** pour les tests de bout en bout et d'accessibilité.
-- **pnpm** comme gestionnaire de paquets ; **GitHub Actions** pour vérifier et déployer sur **GitHub Pages** (`.github/workflows/deploy.yml` : `pnpm check`, `pnpm test`, puis build et déploiement à chaque push sur `main` ; tests seuls sur une pull request). Le site est en ligne sur https://valotkzm.github.io/livesubtitles-website/.
+- **pnpm** comme gestionnaire de paquets ; **GitHub Actions** pour vérifier et déployer sur **GitHub Pages** (`.github/workflows/deploy.yml` : `pnpm check`, `pnpm test`, puis build et déploiement à chaque push sur `main` ; tests seuls sur une pull request). Le site est en ligne sur https://valotkzm.github.io/livesubtitles-obs/.
 
 Versions installées le 2026-10-12 : Astro 7, React 19, Tailwind CSS 4 (plugin Vite, importé dans `src/styles/global.css`), TypeScript 6. Rester sur TypeScript 6 : `astro check` refuse TypeScript 7. Playwright 1.64 et `@axe-core/playwright` 4.13 ajoutés le 2026-10-14. En local, les tests tournent dans Edge (`channel: 'msedge'`), le téléchargement du Chromium de Playwright ayant bloqué ; en intégration continue (`CI` défini), ils utilisent Chromium.
 
@@ -33,7 +33,7 @@ pnpm test                     # build, puis tests Playwright et axe sur le port 
 
 Ne pas lancer `pnpm build` pendant que le serveur de développement tourne : le build remplace le cache des dépendances et l'îlot React plante ensuite en développement (`_jsxDEV is not a function`). Si cela arrive, arrêter puis relancer le serveur.
 
-À cause de `base`, le site local est à l'adresse http://localhost:4321/livesubtitles-website/ et non à la racine.
+À cause de `base`, le site local est à l'adresse http://localhost:4321/livesubtitles-obs/ et non à la racine.
 
 Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulter le guide concerné (routage, composants de framework, styles, internationalisation) avant de s'appuyer sur une API de mémoire.
 
@@ -52,7 +52,7 @@ Documentation d'Astro : https://docs.astro.build. Astro 7 est récent : consulte
 - **Site entièrement statique** : pas de serveur, de base de données ni de compte.
 - **Aucune statistique, aucun traceur, aucune ressource tierce chargée par le navigateur** (polices, scripts, lecteurs vidéo intégrés, CDN). Les polices sont hébergées avec le site. Le plugin promet que rien ne quitte l'ordinateur ; le site ne doit pas contredire cette promesse ni exiger de bandeau de cookies.
 - **L'installateur n'est jamais stocké dans le site** (environ 300 Mo). Le bouton de téléchargement pointe vers `https://github.com/ValotKzm/livesubtitles/releases/latest`.
-- **Le site doit fonctionner sous un sous-chemin** (`valotkzm.github.io/<dépôt>/`) comme à la racine d'un futur nom de domaine : passer par la configuration `base` d'Astro, jamais de chemin absolu écrit en dur.
+- **Le site doit fonctionner sous un sous-chemin** (`valotkzm.github.io/<dépôt>/`, aujourd'hui `/livesubtitles-obs/` ; si le dépôt change de nom, changer `base` dans `astro.config.mjs` et dans `playwright.config.ts`) comme à la racine d'un futur nom de domaine : passer par la configuration `base` d'Astro, jamais de chemin absolu écrit en dur.
 - **Accessibilité** : le site présente un outil d'accessibilité, il doit être exemplaire. Contrastes suffisants, navigation au clavier, respect de `prefers-reduced-motion`, texte alternatif, et toute vidéo de démonstration accompagnée d'un équivalent textuel.
 
 ## Ce que le site peut affirmer
